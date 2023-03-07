@@ -26,10 +26,28 @@ class UserController extends Controller
 
     public function sesion(Request $request) {
 
-        // $credentials = $request->getCredentials();
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
 
+        $username = $request->input('username');
+        
+        $credentials = $request->only('email', 'password');
+
+
+        if (Auth::attempt($credentials)) {
+            // dd(Auth::id());
+            return redirect()->intended('/dashboard')->with('message', "Bienvenid@ ".$username);
+        }
+
+        return redirect('/')->with('message', "Usuario o contraseña incorrecto");
+
+        
+        // $credentials = $request->getCredentials();
+        
         // if (!Auth::validate($credentials)) {
-        //     return redirect('/')->with('message', 'Usuario o contraseña incorrectos');
+            //     return redirect('/')->with('message', 'Usuario o contraseña incorrectos');
         // }
         // $user = AUth::getProvider()->retrieveByCredentials($credentials);
 
@@ -37,10 +55,6 @@ class UserController extends Controller
 
         // return $this->authenticated($request, $user);
 
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
    
         // $credentials = $request->only('name', 'password');
         // if (Auth::attempt($credentials)) {
@@ -52,24 +66,18 @@ class UserController extends Controller
   
         // return redirect("login")->withSuccess('Login details are not valid');
 
-        $username = $request->input('username');
         // $email = $request->input('email');
         // $password = $request->input('password');
 
+        //User::where('username', $user_id)->get();
+
         // // $user_qs[0]['id'] = User::where('name', $name)->get('name');
         // $user_qs = User::where('email', $email)->where('password', $password)->first();
-        $credentials = $request->only('email', 'password');
         // if (!empty($user_qs)) {
         //     return redirect('/dashboard')->with('message', "Bienvenid@ ".$name);
         // }
         // $credentials = $request->only('email', 'password');
         // dd(Auth::attempt($credentials));
-        if (Auth::attempt($credentials)) {
-            // dd(Auth::id());
-            return redirect()->intended('/dashboard')->with('message', "Bienvenid@ ".$username);
-        }
-
-        return redirect('/')->with('message', "Usuario o contraseña incorrecto");
     }
 
     public function store(Request $request)

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('email', 50)->unique();
             $table->string('password', 255);
             $table->rememberToken();
+            $table->tinyInteger('status')->default('1');
             $table->timestamps();
         });
     }

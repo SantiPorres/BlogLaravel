@@ -229,7 +229,7 @@
                         <i>Titulo del hilo</i>
                     </div>
                     <div class="inputBxTxt">
-                        <textarea  type="text" placeholder="Escribe aquí..." name="text_post" maxlength="1000"
+                        <textarea  type="text" placeholder="Escribe aquí..." name="text_post" maxlength="10000"
                         required></textarea>
                     </div>
                     <div class="inputBx">
