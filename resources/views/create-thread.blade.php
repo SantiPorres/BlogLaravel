@@ -225,11 +225,12 @@
             <h2>Crear hilo</h2>
             <div class="form">
                     <div class="inputBx">
-                        <input type="text" name="title" required>
+                        <input type="text" name="title" maxlength="180" required>
                         <i>Titulo del hilo</i>
                     </div>
                     <div class="inputBxTxt">
-                        <textarea  type="text" placeholder="Escribe aquí..." name="text_post" required></textarea>
+                        <textarea  type="text" placeholder="Escribe aquí..." name="text_post" maxlength="1000"
+                        required></textarea>
                     </div>
                     <div class="inputBx">
                         <input href="#" type="submit" value="Publicar hilo">

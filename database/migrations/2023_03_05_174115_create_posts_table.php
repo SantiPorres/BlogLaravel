@@ -15,8 +15,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('title');
-            $table->string('text_post');
+            $table->string('title', 180);
+            $table->text('text_post');
             $table->timestamps();
         });
     }

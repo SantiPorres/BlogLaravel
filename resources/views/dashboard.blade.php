@@ -20,7 +20,7 @@
 
             section .alert {
                 position: relative;
-                width: 666px;
+                width: 800px;
                 background: #222;
                 display: flex;
                 justify-content: center;
@@ -66,22 +66,24 @@
                 <div class="content"></div>
                     <h2 style="
                             padding-bottom: 30px;
+                            text-align: center;
                             font-size: 2em;
                             color: #0f0;
-                            text-transform: uppercase;
+                            text-transform: capitalize;
                             font-weight: 500;"
                             >{{$post->title}}</h2>
-                    <p style="
+                    <pre style="
                             font-size: 1em;
                             color: #fff;
                             font-weight: 500;
                             padding-bottom: 30px;"
-                            >{{$post->text_post}}</p>
+                            >{{$post->text_post}}</pre>
                 <div class="links">
                         <i href="/dashboard" style="
                                                 color: #fff;
                                                 float: left;
-                                                padding: 0px 30px;"
+                                                padding: 0px 30px;
+                                                font-style: normal;"
                                                 >Por: {{$post->user_id}}</i>
                         <a href="" style="
                                                 color: #0f0;

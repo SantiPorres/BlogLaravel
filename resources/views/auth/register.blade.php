@@ -10,19 +10,19 @@
             <div class="form">
             
                     <div class="inputBx">
-                        <input type="text" name="username" required>
+                        <input type="text" name="username" minlength="4" maxlength="20" required>
                         <i>Nombre de usuario</i>
                     </div>
                     <div class="inputBx">
-                        <input type="email" name="email" required>
+                        <input type="email" name="email" maxlength="50" required>
                         <i>Correo electrónico</i>
                     </div>
                     <div class="inputBx">
-                        <input type="password" name="password" required>
+                        <input type="password" name="password" minlength="6" maxlength="255" required>
                         <i>Contraseña</i>
                     </div>
                     <div class="inputBx">
-                        <input type="password" name="confirmpassword" required>
+                        <input type="password" name="confirmpassword" minlength="6" maxlength="255" required>
                         <i>Confirmar contraseña</i>
                     </div>
                     <!-- <div class="inputBx">

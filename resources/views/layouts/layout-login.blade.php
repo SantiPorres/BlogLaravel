@@ -138,15 +138,23 @@
         justify-content: space-between;
     }
 
-    .singin .content .form .links a {
+    .singin .content .form .links i {
         color: #fff;
         text-decoration: none;
+        font-style: normal;
     }
 
-    .singin .content .form .links a:nth-child(2) {
+    .singin .content .form .links a {
         color: #0f0;
         font-weight: 600;
+        text-decoration: none;
+        font-style: normal;
     }
+
+    /* .singin .content .form .links a:nth-child(2) {
+        color: #0f0;
+        font-weight: 600;
+    } */
 
     .singin .content .form .inputBx input[type="submit"] {
         padding: 10px;

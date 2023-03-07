@@ -40,13 +40,6 @@ Route::get('/createThread', function () {
     return view('create-thread');
 });
 
-Route::get('/confirmThread', function () {
-    if (!Auth::check()) {
-        return view('auth.login');
-    }
-    return view('confirm-thread');
-});
-
 
 Route::resource('/user', UserController::class); 
 
