@@ -146,7 +146,7 @@
 
     .singin .content .form .links a {
         color: #0f0;
-        font-weight: 600;
+        /* font-weight: 600; */
         text-decoration: none;
         font-style: normal;
     }

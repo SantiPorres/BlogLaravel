@@ -59,18 +59,52 @@
 
             section .alert .container form input[type="text"] {
                 width: 100%;
-                border-color: #fff;
-                color: #fff;
+                border-color: #999;
+                color: #999;
                 background: none;
                 float: right;
                 border: solid 1px;
                 border-radius: 4px;
+                font-size: 0.85em;
             }
 
             section .alert .container form input[type="submit"] {
                 background: none;
                 color: #0f0;
                 border: none;
+                font-size: 0.85em;
+                padding: 10px 0px;
+            }
+
+            section .alert .container .comment {
+                width: 100%;
+                padding: 10px 30px;
+                display: flex;
+                align-items: center;
+            }
+
+            section .alert .container hr{
+                width: 92%;
+                height: 0px;
+                border: none;
+                border-top: 0.1px solid #999;
+            }
+
+            section .alert .container .comment p{
+                width: 70%;
+                font-size: 0.85em;
+                color: #999;
+                font-weight: 500;
+                white-space: pre-wrap;
+            }
+
+            section .alert .container .comment i{
+                width: 30%;
+                font-size: 0.85em;
+                color: #999;
+                font-weight: 500;
+                white-space: pre-wrap;
+                text-align: right;
             }
                         
         </style>
@@ -85,13 +119,11 @@
     <section >
     <div class="alert">
             <div class="container">
-                <div class="content"></div>
                     <h2 style="
                             padding-bottom: 30px;
                             text-align: center;
                             font-size: 2em;
                             color: #0f0;
-                            text-transform: capitalize;
                             font-weight: 500;"
                             >{{$post->title}}</h2>
                     <p style="
@@ -106,28 +138,32 @@
                                 color: #fff;
                                 float: left;
                                 padding: 0px 30px;
-                                font-style: normal;"
+                                font-size: 0.85em;"
                                 >Por: {{$post->getAuthor->username}}</i>
                         <i style="
                                 color: #fff;
                                 float: left;
                                 padding: 0px 30px;
-                                font-style: normal;"
+                                font-style: normal;
+                                font-size: 0.85em;"
                                 >{{$post->created_at->format('d-m-Y H:i:s')}}</i>    
-                                
                 </div>
-                    <form>
-                    <!-- <form action="{{route('comment.store')}}" method="post"> -->
+                    <form action="{{route('comment.store')}}" method="post">
                         @csrf
-                        <input type="hidden" name="post_id" value="{{$post->id}}">
-                        <input type="text" name="answer" maxlength="180" required>
-                        <i style="
-                        font-style: normal;
-                        background: none;
-                        color: #0f0;
-                        border: none;">Enviar comentario</i>
-                    <!-- <input href="#" type="submit" value="Enviar comentario"> -->
+                        <input type="hidden" name="post_id" value="{{$post->id}}" required>
+                        <input type="text" name="answer" maxlength="255"
+                        placeholder="Comenta aquí..." required>
+                        <input type="submit" value="Enviar comentario">
                     </form>
+                @foreach ($comments as $comment)
+                    @if ($comment->post_id == $post->id)
+                        <hr>
+                        <div class="comment">
+                            <p>{{$comment->answer}}</p>
+                            <i>{{$comment->getAuthorComment->username}}</i>
+                        </div>
+                    @endif
+                @endforeach
             </div>
     </div>
     </section>

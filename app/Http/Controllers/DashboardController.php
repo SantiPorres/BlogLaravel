@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comments;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -16,11 +17,12 @@ class DashboardController extends Controller
         }
 
         $posts = Post::with(['getAuthor'])->get();
+        $comments = Comments::with(['getPostComment', 'getAuthorComment'])->get();
         
         // $user_id = Post::find('user_id');
         
         // $user_name = User::where('username', $user_id);
-        // dd($user_name);
-        return view('dashboard', compact("posts"));
+        // dd($comments);
+        return view('dashboard', compact("posts", "comments"));
     }
 }

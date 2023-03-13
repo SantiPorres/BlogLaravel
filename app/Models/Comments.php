@@ -22,6 +22,11 @@ class Comments extends Model
         'updated_at',
     ];
 
+    public function getPostComment()
+    {
+        return $this->belongsTo(Post::class, 'post_id', 'id');
+    }
+
     public function getAuthorComment()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

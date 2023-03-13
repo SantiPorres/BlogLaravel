@@ -35,7 +35,7 @@
                         </div>
                     @endif
                     <div class="links">
-                        <a href="/"> <- Volver al inicio de sesión</a>
+                        <a href="/"><i><- Volver al inicio de sesión</i></a>
                     </div>
                     <div class="inputBx">
                         <input href="/" type="submit" value="Crear usuario">

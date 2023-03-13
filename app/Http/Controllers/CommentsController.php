@@ -8,9 +8,7 @@ use App\Models\Comments;
 class CommentsController extends Controller
 {
     public function store (Request $request) {
-            
         
-
         if ($request->user()) {
             $user_id = $request->user()->id;
         } else {
@@ -23,6 +21,7 @@ class CommentsController extends Controller
             'user_id' => $user_id,
         ]);
 
-        return redirect('/createThread')->with('message', '¡Hilo publicado exitosamente!');
+        // dd($request->input());
+        return redirect('/dashboard')->with('confirmComment', '¡Comentario publicado exitosamente!');
     }
 }
